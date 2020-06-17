@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> CoronoHelper: It's for your wellbeing </title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Helvetica;
+        }
+
+        .headline {
+            font-size: 1.5rem;
+        }
+
+        .message {
+            font-weight: bold;
+        }
+
+        footer a:link {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+
+        function permit() {
+
+            var x = document.getElementById("outside").value;
+
+            var joblist = document.getElementById("job-select");
+            var message = document.getElementById("message");
+
+            if (x == "no") {
+                message.style.display = "block";
+                joblist.style.display = "none";
+                document.getElementById("message").innerHTML = "You're doing the right thing. Stay indoors and Stay Safe!";
+                message.style.color = "black";
+            } else if (x == "yes") {
+                joblist.style.display = "block";
+                message.style.display = "none";
+            } else if (x == "empty") {
+                document.getElementById("message").innerHTML = "We'd appreciate if you told us to help advise you properly";
+                message.style.color = "red";
+                joblist.style.display = "none";
+            } else if (x == "select") {
+                message.style.display = "none";
+                joblist.style.display = "none";
+            }
+
+        }
+
+        function myFunction() {
+            permit();
+        }
+
+        function jobmessage() {
+            var x = document.getElementById("job").value;
+            var message = document.getElementById("job-message");
+
+
+            if (x == "select") {
+                message.style.display = "none";
+            } else if (x == "essential") {
+                message.style.display = "block"
+                message.style.color = "black"
+                document.getElementById("job-message").innerHTML = "Stay Safe out there!"
+            } else if (x == "healthcare") {
+                message.style.display = "block"
+                message.style.color = "black"
+                document.getElementById("job-message").innerHTML = "Thank you NHS! Stay Safe out there!"
+            } else if (x == "not-essential") {
+                message.style.display = "block"
+                message.style.color = "red"
+                document.getElementById("job-message").innerHTML = "Please stay at and work from home!"
+            } else if (x == "other") {
+                message.style.display = "block"
+                message.style.color = "black"
+                document.getElementById("job-message").innerHTML = "We do advise that you stay at home for your own safety."
+            }
+
+        }
+
+        function myFunction2() {
+            jobmessage();
+        }
+    </script>
+
+    <h1> COVID-19 Advisement Test </h1>
+
+    <p class="headline"> Due to current events, we advise all individuals to stay indoors.</p>
+    <p> However, we understand the need to leave home in case of a food or health emergency.</p>
+    <p> If you have left home for work, we would like you to take this very short test for appropriate advice.</p>
+    <p><label> <strong>*</strong> Are you currently outside? </label>
+
+        <select id="outside" onchange="myFunction()">
+            <option value="select">-Select-</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="empty">Prefer not to say</option>
+        </select>
+    </p>
+
+    <p id="message" class="message"> </p>
+
+
+    <div id="job-select" style="display: none">
+        <p class="message"> If you have left home for work; </p>
+        <p><label> What is your Job Role? </label>
+
+            <select id="job" onchange="myFunction2()">
+                <option value="select">-Select-</option>
+                <option value="not-essential">Architecture and Engineering</option>
+                <option value="not-essential">Arts, Design, Entertainment, Sports and Media</option>
+                <option value="not-essential">Building, Grounds Cleaning and Maintenance</option>
+                <option value="not-essential">Business and Financial Operations</option>
+                <option value="not-essential">Community and Social Services</option>
+                <option value="not-essential">Computer and Mathematics</option>
+                <option value="not-essential">Construction and Extraction</option>
+                <option value="not-essential">Education, Training and Library</option>
+                <option value="essential">Farming, Fishing and Forestry</option>
+                <option value="essential">Food Preparation and Delivery</option>
+                <option value="healthcare">Healthcare Practitioners and Technical</option>
+                <option value="healthcare">Healthcare Support</option>
+                <option value="not-essential">Installation, Maintenance and Repair</option>
+                <option value="not-essential">Legal</option>
+                <option value="not-essential">Life, Physical and Social Science</option>
+                <option value="not-essential">Management</option>
+                <option value="essential">Military</option>
+                <option value="not-essential">Office and Administrative Support</option>
+                <option value="not-essential">Personal Care and Service</option>
+                <option value="not-essential">Production</option>
+                <option value="essential">Protective Service</option>
+                <option value="not-essential">Sales</option>
+                <option value="other">Other</option>
+                <option value="other">-Prefer Not To Say-</option>
+
+            </select>
+        </p>
+        <p id="job-message" class="message"> </p>
+    </div>
+
+    <footer>
+        <p><a href="https://twitter.com/itz_KennyGee" target="_blank"> Follow Us For Updates </a></p>
+    </footer>
+
+</body>
+
+
+</html>
